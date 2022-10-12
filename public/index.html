@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Coffee Cup Company</title>
+</head>
+
+<body>
+<div class="container text-center" style="margin: 5%">
+    <div class="row">
+
+        <div class="col-lg-6" style="margin-top: 7%">
+            <!--<canvas id="camImg" height="" width=""></canvas>-->
+            <img class="img-fluid" src="./pics/test_pic.jpg">
+        </div>
+
+        <div class="col-lg-6" style="margin-top: 5%">
+            <div class="row">
+                <div class="col-4">
+                    <img class="img-fluid d-none d-sm-flex" src="./pics/logo.jpg" alt="company logo">
+                </div>
+                <div class="col-8" class="container-fluid">
+                    <h2 class="d-none d-sm-flex" style="-webkit-text-fill-color: #6f4301; white-space: nowrap">The Coffee Cup Company</h2>
+                    <h4 class="d-none d-sm-block " style="border-width:8px; border-style:inset ; border-color:#FF0000; padding: 2% 0% 2% 0%; margin: 0% 30% 0% 30%; white-space: nowrap" >Coffee<br>TOO LOW</h4>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10%">
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="4">Temperature</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="3">Top</td>
+                            <td id="topTemp">33 °C</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Middle</td>
+                            <td id="midTemp">33 °C</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Bottom</td>
+                            <td id="botTemp">33 °C</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="4">Level Calculations</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="3">Cup fill level</td>
+                            <td id="fillLevel">33%</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Cup full</td>
+                            <td id="fullNoFull">NO</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Coffee hot</td>
+                            <td id="hotOrNot">YES</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./bundle.js"></script>
+</body>
+</html>
