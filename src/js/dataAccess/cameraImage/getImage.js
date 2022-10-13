@@ -1,4 +1,4 @@
-function imgToCanvas(imgID, canvasID){
+export function imgToCanvas(imgID, canvasID){
     let canvas = document.getElementById(canvasID);
     let img = document.getElementById(imgID);
 
@@ -10,12 +10,11 @@ function imgToCanvas(imgID, canvasID){
     ctx.imageSmoothingQuality = 'high';
     ctx.drawImage(img,0,0);}
 
-function getImage(ip, token, imgID)
+export function getImage(ip, token, imgID)
 {
     let xmlHttp = new XMLHttpRequest();
     let image = document.getElementById(imgID);
 
-/*    xmlHttp.open( 'GET', `http://${ip}/api/images/live`, true); // false for synchronous request*/
     xmlHttp.open( 'GET', `http://${ip}/api/images/live`, true); // false for synchronous request
     xmlHttp.setRequestHeader('accept', 'image/bmp');
     xmlHttp.setRequestHeader('Authorization', `Bearer ${token}`);
@@ -34,9 +33,10 @@ function getImage(ip, token, imgID)
     xmlHttp.send( null );
 }
 
+/*
 export function getImg(ip, token, imgID, canvasID, hertz) {
     setInterval(function (){
         getImage(ip,token, imgID);
         imgToCanvas(imgID, canvasID);
     }, 1000/hertz);
-}
+}*/
