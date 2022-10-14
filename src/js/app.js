@@ -4,7 +4,8 @@ import '../css/custom.css';
 import {getToken} from "./dataAccess/token/getToken";
 import {User} from "./dataAccess/userdata/userModel";
 import * as image from "./dataAccess/cameraImage/getImage";
-import {generalGet} from "./dataAccess/get/generalGet";
+import {getCupInfo} from "./dataAccess/get/getCupInfo";
+import {getJobInfo} from "./dataAccess/get/getJobInfo";
 
 let hertz = 5;
 
@@ -13,10 +14,12 @@ try {
     let user = new User('localhost:8080','irsxApp', 'MnrY2L86pEQr53%216', 'administrator', 'administrator');  // MnrY2L86pEQr53!6
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
+    getJobInfo('localhost:8080',token.accessToken,'/jobs','Coffeecup');
+
     setInterval(function (){
         image.getImage(user.ip,token.accessToken, 'img');
         image.imgToCanvas('img', 'camImg');
-        console.log(generalGet('localhost:8080',token.accessToken,'/results'));
+        getCupInfo('localhost:8080',token.accessToken,'/results');
     }, 1000/hertz);
 }
 catch (err) {
