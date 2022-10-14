@@ -6,8 +6,14 @@ import {User} from "./dataAccess/userdata/userModel";
 import * as image from "./dataAccess/cameraImage/getImage";
 import {getCupInfo} from "./dataAccess/get/getCupInfo";
 import {getJobInfo} from "./dataAccess/get/getJobInfo";
+import {AOIisActive} from "./userInterface/showAOI";
+import {addEventListener} from "./userInterface/eventListener";
 
 let hertz = 5;
+
+window.addEventListener('DOMContentLoaded', () => {
+    addEventListener();
+});
 
 try {
 
@@ -18,7 +24,7 @@ try {
 
     setInterval(function (){
         image.getImage(user.ip,token.accessToken, 'img');
-        image.imgToCanvas('img', 'camImg');
+        image.imgToCanvas('img', 'camImg', AOIisActive);
         getCupInfo('localhost:8080',token.accessToken,'/results');
     }, 1000/hertz);
 }

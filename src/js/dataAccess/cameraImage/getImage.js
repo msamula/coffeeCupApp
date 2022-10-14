@@ -1,4 +1,4 @@
-export function imgToCanvas(imgID, canvasID){
+export function imgToCanvas(imgID, canvasID, showAOI){
     let canvas = document.getElementById(canvasID);
     let img = document.getElementById(imgID);
 
@@ -8,7 +8,24 @@ export function imgToCanvas(imgID, canvasID){
     let ctx = canvas.getContext('2d');
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
-    ctx.drawImage(img,0,0);}
+    ctx.drawImage(img,0,0);
+
+    if(showAOI === true){
+        ctx.beginPath();
+        ctx.moveTo(267, 241);
+        ctx.lineTo(274, 327);
+        ctx.lineTo(389, 327);
+        ctx.lineTo(397, 244);
+        ctx.lineTo(330, 230);
+        ctx.closePath();                // go back to point 1
+
+        ctx.strokeStyle = "rgba(61, 168, 245, 0.8)";
+        ctx.fillStyle = "rgba(61, 168, 245, 0.2)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fill();
+    }
+}
 
 export function getImage(ip, token, imgID)
 {
