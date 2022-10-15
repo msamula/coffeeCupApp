@@ -1,6 +1,5 @@
 export class Job{
-    constructor(id, thresholds, points) {
-        this.id = id;
+    constructor(thresholds, points) {
         this.thresholds = thresholds;
         this.points = points;
     }

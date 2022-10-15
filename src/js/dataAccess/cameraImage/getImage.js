@@ -10,18 +10,22 @@ export function imgToCanvas(imgID, canvasID, showAOI){
     ctx.imageSmoothingQuality = 'high';
     ctx.drawImage(img,0,0);
 
-    if(showAOI === true){
+    //draw polygon
+
+    if(showAOI){
+
         ctx.beginPath();
         ctx.moveTo(267, 241);
         ctx.lineTo(274, 327);
         ctx.lineTo(389, 327);
         ctx.lineTo(397, 244);
         ctx.lineTo(330, 230);
-        ctx.closePath();                // go back to point 1
+        ctx.closePath();
 
+        ctx.lineWidth   = 2;
         ctx.strokeStyle = "rgba(61, 168, 245, 0.8)";
-        ctx.fillStyle = "rgba(61, 168, 245, 0.2)";
-        ctx.lineWidth = 2;
+        ctx.fillStyle   = "rgba(61, 168, 245, 0.2)";
+
         ctx.stroke();
         ctx.fill();
     }
@@ -47,13 +51,5 @@ export function getImage(ip, token, imgID)
             image.src = './pics/noImage.jpg';}
     }
 
-    xmlHttp.send( null );
+    xmlHttp.send();
 }
-
-/*
-export function getImg(ip, token, imgID, canvasID, hertz) {
-    setInterval(function (){
-        getImage(ip,token, imgID);
-        imgToCanvas(imgID, canvasID);
-    }, 1000/hertz);
-}*/

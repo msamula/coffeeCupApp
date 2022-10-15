@@ -1,4 +1,3 @@
-
 export function getCupInfo(ip, token, path) {
     let fillLevel = document.getElementById('fillLevel');
     let cupTemp = document.getElementById('cupTemp');
@@ -42,7 +41,7 @@ export function getCupInfo(ip, token, path) {
                 }
 
                 else if(percantage < 100 && temperature >= 60){
-                    sign.innerHTML = 'Coffee <br> TOO LOW';
+                    sign.innerHTML = 'Coffee <br>TOO LOW';
                     sign.style.borderBlockColor = 'red';
                     sign.style.borderInlineColor = 'red';
                 }

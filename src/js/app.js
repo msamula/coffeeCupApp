@@ -9,7 +9,8 @@ import {getJobInfo} from "./dataAccess/get/getJobInfo";
 import {AOIisActive} from "./userInterface/showAOI";
 import {addEventListener} from "./userInterface/eventListener";
 
-let hertz = 5;
+let ipAddress = 'localhost:8080';
+let hertz = 9;
 
 window.addEventListener('DOMContentLoaded', () => {
     addEventListener();
@@ -17,15 +18,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
 try {
 
-    let user = new User('localhost:8080','irsxApp', 'MnrY2L86pEQr53%216', 'administrator', 'administrator');  // MnrY2L86pEQr53!6
+    let user = new User(ipAddress,'irsxApp', 'MnrY2L86pEQr53%216' /*MnrY2L86pEQr53!6*/, 'administrator', 'administrator');
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
-    getJobInfo('localhost:8080',token.accessToken,'/jobs','Coffeecup');
+
+    let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
+    console.log(jobInfo);
+
 
     setInterval(function (){
         image.getImage(user.ip,token.accessToken, 'img');
         image.imgToCanvas('img', 'camImg', AOIisActive);
-        getCupInfo('localhost:8080',token.accessToken,'/results');
+        getCupInfo(user.ip ,token.accessToken,'/results');
     }, 1000/hertz);
 }
 catch (err) {
