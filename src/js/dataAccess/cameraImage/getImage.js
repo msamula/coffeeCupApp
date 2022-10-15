@@ -6,9 +6,9 @@ export function imgToCanvas(imgID, canvasID, showAOI){
     canvas.height = img.height;
 
     let ctx = canvas.getContext('2d');
-    ctx.imageSmoothingEnabled = true;
+/*    ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
-    ctx.drawImage(img,0,0);
+    ctx.drawImage(img,0,0);*/
 
     //draw polygon
 

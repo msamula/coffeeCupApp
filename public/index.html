@@ -15,11 +15,15 @@
         <div class="col-sm-6" style="margin-top: 7%">
             <div class="row">
                 <div class="col-12">
-                    <canvas class="img-fluid rounded" id="camImg"></canvas>
-                    <img hidden class="img-fluid" id="img" >
+                    <div class="outsideWrapper">
+                        <div class="insideWrapper">
+                            <img class="img-fluid coveredImage" id="img" >
+                            <canvas class="img-fluid rounded coveringCanvas" id="camImg"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 2px">
                 <div class="col-12">
                     <button id="aoiBtn" class="btn btn-dark btn-sm">AOI</button>
                 </div>

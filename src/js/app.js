@@ -21,10 +21,8 @@ try {
     let user = new User(ipAddress,'irsxApp', 'MnrY2L86pEQr53%216' /*MnrY2L86pEQr53!6*/, 'administrator', 'administrator');
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
-
     let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
-    console.log(jobInfo);
-
+    //console.log(jobInfo);
 
     setInterval(function (){
         image.getImage(user.ip,token.accessToken, 'img');
