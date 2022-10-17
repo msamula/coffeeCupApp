@@ -6,11 +6,12 @@ function getPoints(json) {
     for (let i = 0; i < roisCount; i++) {
 
         let pointsCount = json.rois[i].points.length;
-
+        let output = [];
+        output.push(json.rois[i].aoiType);
         for (let j = 0; j < pointsCount; j++) {
-            let push = [json.rois[i].points[j].x, json.rois[i].points[j].y];
-            result.push(push);
+            output.push([json.rois[i].points[j].x, json.rois[i].points[j].y]);
         }
+        result.push(output);
     }
 
     return result;
@@ -37,6 +38,7 @@ export function getJobInfo(ip, token, path, jobID){
         if(request.readyState === 4 && request.status === 200) {
 
         let json = JSON.parse(request.response);
+        console.log(json);
         results = [getThresholds(json), getPoints(json)];
         }
     };

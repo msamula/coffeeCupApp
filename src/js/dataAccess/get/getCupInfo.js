@@ -1,9 +1,11 @@
-export function getCupInfo(ip, token, path) {
+export function getCupInfo(ip, token, path, threshold) {
     let fillLevel = document.getElementById('fillLevel');
     let cupTemp = document.getElementById('cupTemp');
     let fullCup = document.getElementById('fullCup');
     let hotCoffee = document.getElementById('hot');
     let sign = document.getElementById('sign');
+
+    let max = threshold-273.15;
 
     let request = new XMLHttpRequest();
 
@@ -25,27 +27,27 @@ export function getCupInfo(ip, token, path) {
                     fullCup.style.webkitTextFillColor = 'red';
                 }
 
-                if(temperature >= 60){
+                if(temperature >= max){
                     hotCoffee.innerHTML='YES';
                     hotCoffee.style.webkitTextFillColor = 'green';}
 
-                else if(temperature < 60){
+                else if(temperature < max){
                     hotCoffee.innerHTML='NO';
                     hotCoffee.style.webkitTextFillColor = 'red';
                 }
 
-                if(percantage == 100 && temperature >= 60){
+                if(percantage == 100 && temperature >= max){
                     sign.innerHTML = 'Coffee <br> READY';
                     sign.style.borderBlockColor = 'green';
                     sign.style.borderInlineColor = 'green';
                 }
 
-                else if(percantage < 100 && temperature >= 60){
+                else if(percantage < 100 && temperature >= max){
                     sign.innerHTML = 'Coffee <br>TOO LOW';
                     sign.style.borderBlockColor = 'red';
                     sign.style.borderInlineColor = 'red';
                 }
-                else if(percantage < 100 && temperature < 60){
+                else if(percantage < 100 && temperature < max){
                     sign.innerHTML = 'Coffee <br> COMING';
                     sign.style.borderBlockColor = 'yellow';
                     sign.style.borderInlineColor = 'yellow';

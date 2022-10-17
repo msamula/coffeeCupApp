@@ -9,7 +9,8 @@ import {getJobInfo} from "./dataAccess/get/getJobInfo";
 import {AOIisActive} from "./userInterface/showAOI";
 import {addEventListener} from "./userInterface/eventListener";
 
-let ipAddress = 'localhost:8080';
+
+let ipAddress = 'localhost:8080';     //'192.168.3.20'
 let hertz = 9;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -22,12 +23,18 @@ try {
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
     let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
-    //console.log(jobInfo);
+    console.log(jobInfo);
+
+    const myInterval = setInterval(()=> {
+        if(document.getElementById('img').width > 0){
+            clearInterval(myInterval);
+        }
+        image.drawAOI('img', 'camImg', jobInfo[1]);
+    },1);
 
     setInterval(function (){
         image.getImage(user.ip,token.accessToken, 'img');
-        image.imgToCanvas('img', 'camImg', AOIisActive);
-        getCupInfo(user.ip ,token.accessToken,'/results');
+        getCupInfo(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
     }, 1000/hertz);
 }
 catch (err) {
