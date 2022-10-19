@@ -38,7 +38,7 @@ export function getJobInfo(ip, token, path, jobID){
         if(request.readyState === 4 && request.status === 200) {
 
         let json = JSON.parse(request.response);
-        console.log(json);
+        //console.log(json);
         results = [getThresholds(json), getPoints(json)];
         }
     };

@@ -38,19 +38,18 @@ export function getCupInfo(ip, token, path, threshold) {
 
                 if(percantage == 100 && temperature >= max){
                     sign.innerHTML = 'Coffee <br> READY';
-                    sign.style.borderBlockColor = 'green';
-                    sign.style.borderInlineColor = 'green';
+                    sign.className = 'alert alert-success';
                 }
 
                 else if(percantage < 100 && temperature >= max){
                     sign.innerHTML = 'Coffee <br>TOO LOW';
-                    sign.style.borderBlockColor = 'red';
-                    sign.style.borderInlineColor = 'red';
+                    sign.className = 'alert alert-danger';
                 }
                 else if(percantage < 100 && temperature < max){
                     sign.innerHTML = 'Coffee <br> COMING';
-                    sign.style.borderBlockColor = 'yellow';
-                    sign.style.borderInlineColor = 'yellow';
+                    sign.className = 'alert alert-warning';
+/*                    sign.style.borderBlockColor = 'yellow';
+                    sign.style.borderInlineColor = 'yellow';*/
                 }
 
     };

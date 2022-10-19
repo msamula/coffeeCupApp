@@ -23,7 +23,7 @@ try {
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
     let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
-    console.log(jobInfo);
+    //console.log(jobInfo);
 
     const myInterval = setInterval(()=> {
         if(document.getElementById('img').width > 0){
