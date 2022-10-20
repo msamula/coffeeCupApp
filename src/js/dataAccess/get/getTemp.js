@@ -1,4 +1,4 @@
-export function getCupInfo(ip, token, path, threshold) {
+export function getTemp(ip, token, path, threshold) {
     let fillLevel = document.getElementById('fillLevel');
     let cupTemp = document.getElementById('cupTemp');
     let fullCup = document.getElementById('fullCup');
