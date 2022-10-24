@@ -39,17 +39,17 @@ export function getTemp(ip, token, path, threshold) {
                 if(percantage == 100 && temperature >= max){
                     sign.innerHTML = 'Coffee <br> READY';
                     sign.className = 'alert alert-success';
+                    sign.style.backgroundColor = 'rgba(2, 181, 41,1)';
                 }
 
                 else if(percantage < 100 && temperature >= max){
                     sign.innerHTML = 'Coffee <br>TOO LOW';
                     sign.className = 'alert alert-danger';
+                    sign.style.backgroundColor = 'rgba(217, 2, 2,1)';
                 }
                 else if(percantage < 100 && temperature < max){
                     sign.innerHTML = 'Coffee <br> COMING';
-                    sign.className = 'alert alert-warning';
-/*                    sign.style.borderBlockColor = 'yellow';
-                    sign.style.borderInlineColor = 'yellow';*/
+                    sign.className = 'alert alert-warning blink';
                 }
 
     };

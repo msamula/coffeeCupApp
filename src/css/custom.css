@@ -47,3 +47,30 @@
     left: 0px;
     background-color: rgba(0, 0, 0, 0);
 }
+
+.blink {
+    animation: blink-animation 1.5s linear infinite;
+    -webkit-animation: blink-animation 1.5s linear infinite;
+}
+@keyframes blink-animation {
+    0% {
+        background-color: rgba(255, 170, 50,0)
+    }
+    50% {
+        background-color: rgba(255, 170, 50,1)
+    }
+    100% {
+        background-color: rgba(255, 170, 50,0)
+    }
+}
+@-webkit-keyframes blink-animation {
+    0% {
+        background-color: rgba(255, 170, 50,0)
+    }
+    50% {
+        background-color: rgba(255, 170, 50,1)
+    }
+    100% {
+        background-color: rgba(255, 170, 50,0)
+    }
+}
