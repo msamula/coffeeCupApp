@@ -6,39 +6,41 @@
     <link rel="icon" type="image/x-icon" href="/pics/logo.png">
     <title>The Coffee Cup Company</title>
 </head>
-
 <body>
 <script src="./bundle.js"></script>
-<div class="container text-center" style="margin: 5%">
-    <div class="row">
 
-        <div class="col-sm-6" style="margin-top: 7%">
+<div class="container" style="margin: 3%">
+    <div class="row text-center"  >
+        <div class="col-lg">
+            <img class="img-fluid" src="./pics/logo.png" alt="company logo">
+        </div>
+        <div class="col-lg" style="margin-top: 2%">
+            <h2  style="-webkit-text-fill-color: #6f4301; white-space: nowrap">The Coffee Cup Company</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xxl-6" style="margin-top: 5%">
             <div class="row">
-                <div class="col-12">
-                    <div class="outsideWrapper img-fluid">
+                <div class="col-12 text-center">
+                    <div class="outsideWrapper">
                         <div class="insideWrapper">
-                            <img class="img-fluid rounded coveredImage" id="img" >
-                            <canvas class="img-fluid rounded coveringCanvas" id="imgCanvas" style="display: none"></canvas>
+                            <img class="rounded coveredImage" id="img" >
+                            <canvas class="rounded coveringCanvas" id="imgCanvas" style="display: none"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row" style="margin-top: 2px">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <button id="aoiBtn" class="btn btn-dark btn-sm">AOI</button>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-6" style="margin-top: 5%">
-            <div class="row">
-                <div class="col-4">
-                    <img class="img-fluid d-none d-sm-flex" src="./pics/logo.png" alt="company logo">
-                </div>
-                <div class="col-8" class="container-fluid">
-                    <h2 class="d-none d-sm-flex" style="-webkit-text-fill-color: #6f4301; white-space: nowrap">The Coffee Cup Company</h2>
-                    <!--<h4 id="sign" class="d-none d-sm-block " style="border-width:8px; border-style:inset ; border-color:#FFFF00; padding: 3% 0% 3% 0%; margin: 0% 30% 0% 30%; white-space: nowrap" >Coffee<br>COMING</h4>-->
-                    <div id="sign" class="alert alert-warning" role="alert" style="padding: 3% 0% 3% 0%; margin: 0% 30% 0% 30%; white-space: nowrap">
+        <div class="col-xxl-6" style="margin-top: 5%">
+            <div class="row text-center">
+                <div class="col-12" class="container-fluid ">
+                    <div id="sign" class="alert alert-warning" role="alert" style="max-width: 100px; margin-left: 45%; white-space: nowrap; font-weight: bold;border-color: black; box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);">
                         Coffee<br>COMING
                     </div>
                 </div>
