@@ -12,8 +12,8 @@ export function getTemp(ip, token, path, threshold) {
     request.onload = () => {
                 let json = request.response;
 
-                let percantage = ((json.results[0].value[0]/json.results[2].value[0])*100).toFixed(2);
-                let temperature = (json.results[4].value[0]-273.15).toFixed(2);
+                let percantage = ((json.results[0].value[0]/json.results[2].value[0])*100).toFixed(1);
+                let temperature = (json.results[4].value[0]-273.15).toFixed(1);
 
                 fillLevel.innerHTML = `${percantage}%`;
                 cupTemp.innerHTML   = `${temperature}°C`;
