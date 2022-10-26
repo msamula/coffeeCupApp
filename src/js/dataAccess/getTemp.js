@@ -49,7 +49,7 @@ export function getTemp(ip, token, path, threshold) {
                     sign.style.backgroundColor = 'rgba(217, 2, 2,1)';
                 }
                 else if(percantage < 75 && percantage >= 70 && temperature < 45){
-                    sign.innerHTML = 'Coffee <br>IS COLD';
+                    sign.innerHTML = 'Coffee <br>COLD';
                     sign.className = 'alert';
                     sign.style.backgroundColor = 'rgba(0, 159, 245,1)';
                 }
