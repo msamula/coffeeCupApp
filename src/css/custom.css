@@ -54,23 +54,23 @@
 }
 @keyframes blink-animation {
     0% {
-        background-color: rgba(0, 159, 245,0)
+        background-color: rgba(252, 164, 0,0)
     }
     50% {
-        background-color: rgba(0, 159, 245,1)
+        background-color: rgba(252, 164, 0,1)
     }
     100% {
-        background-color: rgba(0, 159, 245,0)
+        background-color: rgba(252, 164, 0,0)
     }
 }
 @-webkit-keyframes blink-animation {
     0% {
-        background-color: rgba(0, 159, 245,0)
+        background-color: rgba(252, 164, 0,0)
     }
     50% {
-        background-color: rgba(0, 159, 245,1)
+        background-color: rgba(252, 164, 0,1)
     }
     100% {
-        background-color: rgba(0, 159, 245,0)
+        background-color: rgba(252, 164, 0,0)
     }
 }

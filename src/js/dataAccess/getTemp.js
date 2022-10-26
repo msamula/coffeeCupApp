@@ -1,3 +1,4 @@
+// get actual temperature and fill level and show the values in html
 export function getTemp(ip, token, path, threshold) {
     let fillLevel = document.getElementById('fillLevel');
     let cupTemp = document.getElementById('cupTemp');
@@ -5,7 +6,7 @@ export function getTemp(ip, token, path, threshold) {
     let hotCoffee = document.getElementById('hot');
     let sign = document.getElementById('sign');
 
-    let max = threshold-273.15;
+    let maxTemp = threshold-273.15;
 
     let request = new XMLHttpRequest();
 
@@ -27,29 +28,34 @@ export function getTemp(ip, token, path, threshold) {
                     fullCup.style.webkitTextFillColor = 'red';
                 }
 
-                if(temperature >= max){
+                if(temperature >= maxTemp){
                     hotCoffee.innerHTML='YES';
                     hotCoffee.style.webkitTextFillColor = 'green';}
 
-                else if(temperature < max){
+                else if(temperature < maxTemp){
                     hotCoffee.innerHTML='NO';
                     hotCoffee.style.webkitTextFillColor = 'red';
                 }
 
-                if(percantage == 100 && temperature >= max){
+                if(percantage >= 98.8 && temperature >= maxTemp){
                     sign.innerHTML = 'Coffee <br> READY';
-                    sign.className = 'alert alert-success';
+                    sign.className = 'alert';
                     sign.style.backgroundColor = 'rgba(2, 181, 41,1)';
                 }
 
-                else if(percantage < 100 && temperature >= max){
+                else if(percantage < 98.8 && temperature >= maxTemp){
                     sign.innerHTML = 'Coffee <br>TOO LOW';
-                    sign.className = 'alert alert-danger';
+                    sign.className = 'alert';
                     sign.style.backgroundColor = 'rgba(217, 2, 2,1)';
                 }
-                else if(percantage < 100 && temperature < max){
+                else if(percantage < 75 && percantage >= 70 && temperature < 45){
+                    sign.innerHTML = 'Coffee <br>IS COLD';
+                    sign.className = 'alert';
+                    sign.style.backgroundColor = 'rgba(0, 159, 245,1)';
+                }
+                else if(percantage < 100 && temperature < maxTemp){
                     sign.innerHTML = 'Coffee <br> COMING';
-                    sign.className = 'alert alert-warning blink';
+                    sign.className = 'alert blink';
                 }
 
     };

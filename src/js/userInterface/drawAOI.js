@@ -22,6 +22,7 @@ export function drawAOI(imgID, canvasID, pointsArray){
                 ctx.stroke();
                 ctx.fill();
             }
+
             if(pointsArray[i][0] === 'PolyLine'){
                 ctx.beginPath();
                 ctx.moveTo(pointsArray[i][1][0], pointsArray[i][1][1]);
@@ -32,6 +33,7 @@ export function drawAOI(imgID, canvasID, pointsArray){
                 ctx.strokeStyle = "rgba(61, 168, 245, 0.8)";
                 ctx.stroke();
             }
+
             if(pointsArray[i][0] === 'Ellipse' ||  pointsArray[i][0] === 'EllipseLine'){
             }
         }

@@ -1,17 +1,20 @@
+
 import 'bootstrap';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/custom.css';
-import {getToken, refreshToken} from "./dataAccess/token/getToken";
-import {User} from "./dataAccess/userdata/userModel";
-import {getImage} from "./dataAccess/cameraImage/getImage";
-import {getTemp} from "./dataAccess/get/getTemp";
-import {getJobInfo} from "./dataAccess/get/getJobInfo";
+
+import {User} from "./dataAccess/Models";
+import {getToken, refreshToken} from "./dataAccess/getToken";
+import {getImage} from "./dataAccess/getImage";
+import {getTemp} from "./dataAccess/getTemp";
+import {getJobInfo} from "./dataAccess/getJobInfo";
+
 import {addEventListener} from "./userInterface/eventListener";
-import {drawAOI} from "./userInterface/aoi/drawAOI";
+import {drawAOI} from "./userInterface/drawAOI";
 
 //camera settings
 let ipAddress = 'localhost:8080';     //'192.168.3.20'
-let hertz = 9;
+let hertz = 5;
 
 //MAIN
 //load function for buttons
@@ -24,13 +27,6 @@ try {
     let user = new User(ipAddress,'irsxApp', 'MnrY2L86pEQr53%216' /*MnrY2L86pEQr53!6*/, 'administrator', 'administrator');
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
-    setTimeout(()=>{
-        setInterval(()=>{
-            token = refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
-            console.log('token wurde aktualisiert');
-        },(token.expireSec-10)*1000)
-    },(token.expireSec-10)*1000);
-
     //thresholds und aoi x,y-koordinaten
     let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
 
@@ -41,6 +37,14 @@ try {
         }
         drawAOI('img', 'imgCanvas', jobInfo[1]);
     },1);
+
+    //refresh token
+    setTimeout(()=>{
+        setInterval(async ()=>{
+            token = await refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
+            console.log('token wurde aktualisiert');
+        },(token.expireSec/10)*1000)
+    },(token.expireSec/10)*1000);
 
     //get image and temp from camera
     setInterval(function (){

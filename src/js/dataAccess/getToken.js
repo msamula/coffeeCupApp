@@ -1,11 +1,12 @@
-import {Token} from "./tokenModel";
+import {Token} from "./Models";
+
+let xmlHttp = new XMLHttpRequest();
 
 export function getToken(ip,cliId,cliSecret,user,password)
 {
     let token;
     let url = `http://${ip}/api/oauth/token?client_id=${cliId}&client_secret=${cliSecret}&grant_type=password&username=${user}&password=${password}`;
 
-    let xmlHttp = new XMLHttpRequest();
     xmlHttp.open('POST', url, false);
     xmlHttp.setRequestHeader('accept', 'application/json');
 
@@ -25,7 +26,6 @@ export function refreshToken(ip,cliId,cliSecret,refreshtoken){
     let token;
     let url = `http://${ip}/api/oauth/token?client_id=${cliId}&client_secret=${cliSecret}&grant_type=refresh_token&refresh_token=${refreshtoken}`;
 
-    let xmlHttp = new XMLHttpRequest();
     xmlHttp.open('POST', url, false);
     xmlHttp.setRequestHeader('accept', 'application/json');
 
@@ -39,5 +39,4 @@ export function refreshToken(ip,cliId,cliSecret,refreshtoken){
 
     xmlHttp.send();
     return token;
-
 }

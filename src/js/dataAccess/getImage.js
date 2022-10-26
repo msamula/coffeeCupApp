@@ -1,3 +1,4 @@
+//get camera image
 export function getImage(ip, token, imgID)
 {
     let xmlHttp = new XMLHttpRequest();
