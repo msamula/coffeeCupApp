@@ -20,67 +20,58 @@
     </div>
     <div class="row">
         <div class="col-xxl-6" style="margin-top: 5%">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="outsideWrapper">
-                        <div class="insideWrapper">
-                            <img class="rounded coveredImage" id="img" >
-                            <canvas class="rounded coveringCanvas" id="imgCanvas" style="display: none"></canvas>
-                        </div>
+            <div class="col-12 text-center">
+                <div class="outsideWrapper">
+                    <div class="insideWrapper">
+                        <img class="rounded coveredImage" id="img" >
+                        <canvas class="rounded coveringCanvas" id="imgCanvas" style="display: none"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="row" style="margin-top: 4px">
-                <div class="text-center">
-                    <button id="aoiBtn" class="btn btn-secondary btn-sm" style="min-width: 80px">show AOI</button>
-                </div>
+            <div class="text-center" style="margin-top: 4px">
+                <button id="aoiBtn" class="btn btn-secondary btn-sm" style="min-width: 80px">show AOI</button>
             </div>
         </div>
 
         <div class="col-xxl-6" style="margin-top: 5%">
-            <div class="row">
-                <div id="sign" class="alert" role="alert" style="max-width: 100px; margin-left: 45.75%; white-space: nowrap; font-weight: bold;border-color: black; box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2); -webkit-text-fill-color: black">
-                    Coffee<br>COMING
-                </div>
+            <div id="sign" class="alert" role="alert" style="max-width: 100px; margin-left: 45.75%; white-space: nowrap; font-weight: bold;border-color: black; box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2); -webkit-text-fill-color: black">
+                Coffee<br>COMING
             </div>
-            <div class="row" style="margin-top: 10%;">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col" colspan="4">Temperature</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td colspan="3">Cup Temperature</td>
-                        <td id="cupTemp" class="text-end"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row" style="margin-top: 3%">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col" colspan="4">Level Calculations</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td colspan="3">Cup fill level</td>
-                        <td id="fillLevel" class="text-end"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">Cup full</td>
-                        <td id="fullCup" style="font-weight: bold" class="text-end"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">Coffee hot</td>
-                        <td id="hot" style="font-weight: bold" class="text-end"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table" style="margin-top: 10%;">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="4">Temperature</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="3">Cup Temperature</td>
+                    <td id="cupTemp" class="text-end"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="table" style="margin-top: 3%">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="4">Level Calculations</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="3">Cup fill level</td>
+                    <td id="fillLevel" class="text-end"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Cup full</td>
+                    <td id="fullCup" style="font-weight: bold" class="text-end"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Coffee hot</td>
+                    <td id="hot" style="font-weight: bold" class="text-end"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
