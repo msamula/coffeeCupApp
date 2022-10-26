@@ -1,5 +1,9 @@
 // get the actual temperature and the fill level and show their values in html
+
 export function getTemp(ip, token, path, threshold) {
+    let start, end;
+    start = new Date();
+
     let fillLevel = document.getElementById('fillLevel');
     let cupTemp = document.getElementById('cupTemp');
     let fullCup = document.getElementById('fullCup');
@@ -9,6 +13,10 @@ export function getTemp(ip, token, path, threshold) {
     let maxTemp = threshold-273.15;
 
     let request = new XMLHttpRequest();
+    request.open('GET', `http://${ip}/api${path}`, true);
+    request.responseType = 'json';
+    request.setRequestHeader('Authorization', `Bearer ${token}`);
+    request.setRequestHeader('Accept', 'application/json');
 
     request.onload = () => {
                 let json = request.response;
@@ -58,10 +66,10 @@ export function getTemp(ip, token, path, threshold) {
                     sign.className = 'alert blink';
                 }
 
+                end = new Date();
+                console.log(end.getTime()-start.getTime() + 'ms [Data]');
+
     };
-    request.open('GET', `http://${ip}/api${path}`, true);
-    request.responseType = 'json';
-    request.setRequestHeader('Authorization', `Bearer ${token}`);
-    request.setRequestHeader('Accept', 'application/json');
+
     request.send();
 }

@@ -1,6 +1,8 @@
 //get the camera image
 export function getImage(ip, token, imgID)
 {
+    let start, end;
+    start = new Date();
     let xmlHttp = new XMLHttpRequest();
     let image = document.getElementById(imgID);
 
@@ -13,11 +15,17 @@ export function getImage(ip, token, imgID)
 
         if(this.status === 200){
             image.src =  URL.createObjectURL(this.response);
+            end = new Date();
+            console.log(end.getTime()-start.getTime()+' ms [Image]');
         }
 
         if(this.status !== 200){
-            image.src = './pics/noImage.jpg';}
+            image.src = './pics/noImage.jpg';
+            end = new Date();
+            console.log(end.getTime()-start.getTime()+` ms [Image]`);}
     }
 
     xmlHttp.send();
+
+
 }

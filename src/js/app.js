@@ -15,7 +15,7 @@ import {drawAOI} from "./userInterface/drawAOI";
 
 //camera settings
 let ipAddress = 'localhost:8080';
-let hertz = 5;
+let hertz = 9;
 
 
 //MAIN FUNCTION
@@ -59,8 +59,13 @@ try {
     //get image and temperature from camera
     setInterval(function (){
         getImage(user.ip,token.accessToken, 'img');
-        getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
+        //getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
     }, 1000/hertz);
+
+    setInterval(function (){
+        //getImage(user.ip,token.accessToken, 'img');
+        getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
+    }, 500);
 }
 
 catch (err) {
