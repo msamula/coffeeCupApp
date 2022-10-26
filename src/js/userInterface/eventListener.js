@@ -1,3 +1,5 @@
+// add eventlistener for button
+
 function showAOI(canvasID, aoibutton) {
     let canvas = document.getElementById(canvasID);
     let aoiBtn = document.getElementById(aoibutton);

@@ -1,3 +1,5 @@
+// user model and token model
+
 export class Token {
     constructor(accessToken, type, expireSec, scope, refreshToken, iat, exp) {
         this.accessToken = accessToken;

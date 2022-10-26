@@ -17,6 +17,7 @@ function getPoints(json) {
 
     return result;
 }
+
 // thresholds from job
 function getThresholds(json) {
     let thresholdsCount = json.thresholds.length;

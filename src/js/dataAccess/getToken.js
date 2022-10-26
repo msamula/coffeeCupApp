@@ -2,6 +2,7 @@ import {Token} from "./Models";
 
 let xmlHttp = new XMLHttpRequest();
 
+//GET token function
 export function getToken(ip,cliId,cliSecret,user,password)
 {
     let token;
@@ -22,6 +23,7 @@ export function getToken(ip,cliId,cliSecret,user,password)
     return token;
 }
 
+//Refresh token function
 export function refreshToken(ip,cliId,cliSecret,refreshtoken){
     let token;
     let url = `http://${ip}/api/oauth/token?client_id=${cliId}&client_secret=${cliSecret}&grant_type=refresh_token&refresh_token=${refreshtoken}`;

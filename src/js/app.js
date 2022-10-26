@@ -1,4 +1,3 @@
-
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/custom.css';
@@ -12,23 +11,31 @@ import {getJobInfo} from "./dataAccess/getJobInfo";
 import {addEventListener} from "./userInterface/eventListener";
 import {drawAOI} from "./userInterface/drawAOI";
 
+
+
 //camera settings
-let ipAddress = 'localhost:8080';     //'192.168.3.20'
+let ipAddress = 'localhost:8080';
 let hertz = 5;
 
-//MAIN
+
+//MAIN FUNCTION
+
 //load function for buttons
 window.addEventListener('DOMContentLoaded', () => {
     addEventListener();
 });
 
 try {
-    //user + token
+
+    //create user and get token
     let user = new User(ipAddress,'irsxApp', 'MnrY2L86pEQr53%216' /*MnrY2L86pEQr53!6*/, 'administrator', 'administrator');
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
-    //thresholds und aoi x,y-koordinaten
+
+    //get thresholds and coordinates for aoi
     let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
+
+
 
     //draw AOI's
     const myInterval = setInterval(()=> {
@@ -38,7 +45,9 @@ try {
         drawAOI('img', 'imgCanvas', jobInfo[1]);
     },1);
 
-    //refresh token
+
+
+    //refresh the token
     setTimeout(()=>{
         setInterval(async ()=>{
             token = await refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
@@ -46,12 +55,14 @@ try {
         },(token.expireSec/10)*1000)
     },(token.expireSec/10)*1000);
 
-    //get image and temp from camera
+
+    //get image and temperature from camera
     setInterval(function (){
         getImage(user.ip,token.accessToken, 'img');
         getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
     }, 1000/hertz);
 }
+
 catch (err) {
     console.log(err);
 }

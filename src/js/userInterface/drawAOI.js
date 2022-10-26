@@ -1,3 +1,5 @@
+// draw all aoi from the job
+
 export function drawAOI(imgID, canvasID, pointsArray){
     let canvas = document.getElementById(canvasID);
     let img = document.getElementById(imgID);
