@@ -32,7 +32,6 @@ export async function refreshToken(ip,cliId,cliSecret,refreshToken){
         method: 'POST',
         headers: {
         'accept': 'application/json',
-            'Authorization': `Bearer ${token}`
         }
     });
 
