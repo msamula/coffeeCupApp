@@ -59,8 +59,11 @@ try {
     //get image and temperature from camera
     setInterval(function (){
         getImage(user.ip,token.accessToken, 'img');
-        //getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
     }, 1000/hertz);
+
+    setInterval(function (){
+        getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
+    }, 300);
 }
 
 catch (err) {
