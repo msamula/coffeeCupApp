@@ -1,31 +1,27 @@
 //get the camera image
-export function getImage(ip, token, imgID)
+export async function getImage(ip, token, imgID)
 {
     let start, end;
     start = new Date();
-    let xmlHttp = new XMLHttpRequest();
+
     let image = document.getElementById(imgID);
 
-    xmlHttp.open( 'GET', `http://${ip}/api/images/live`, true); // false for synchronous request
-    xmlHttp.setRequestHeader('accept', 'image/bmp');
-    xmlHttp.setRequestHeader('Authorization', `Bearer ${token}`);
-    xmlHttp.responseType = 'blob';
-
-    xmlHttp.onload = function (){
-
-        if(this.status === 200){
-            image.src =  URL.createObjectURL(this.response);
-            end = new Date();
-            console.log(end.getTime()-start.getTime()+' ms [Image]');
+    let response = await fetch(`http://${ip}/api/images/live`, {
+        headers: {
+            'accept': 'image/bmp',
+            'Authorization': `Bearer ${token}`
         }
+    })
 
-        if(this.status !== 200){
-            image.src = './pics/noImage.jpg';
-            end = new Date();
-            console.log(end.getTime()-start.getTime()+` ms [Image]`);}
+    if (response.status === 200) {
+        let blob = await response.blob();
+        image.src = URL.createObjectURL(blob);
+
+        end = new Date();
+        console.log(end.getTime() - start.getTime() + ' ms [Image]');
     }
 
-    xmlHttp.send();
-
-
+    if (response.status !== 200) {
+        image.src = './pics/noImage.jpg';
+    }
 }

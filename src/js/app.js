@@ -20,7 +20,7 @@ let hertz = 9;
 
 //MAIN FUNCTION
 
-//load function for buttons
+//load function for button
 window.addEventListener('DOMContentLoaded', () => {
     addEventListener();
 });
@@ -32,7 +32,7 @@ try {
     let token = getToken(user.ip, user.clientID, user.clientSecret, user.userName, user.userPassword);
 
 
-    //get thresholds and coordinates for aoi
+    //get thresholds and coordinates for aoi from the COFFEE CUP JOB!
     let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
 
 
@@ -61,11 +61,6 @@ try {
         getImage(user.ip,token.accessToken, 'img');
         //getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
     }, 1000/hertz);
-
-    setInterval(function (){
-        //getImage(user.ip,token.accessToken, 'img');
-        getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
-    }, 500);
 }
 
 catch (err) {
