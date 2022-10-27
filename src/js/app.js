@@ -52,17 +52,17 @@ try {
         setInterval(async ()=>{
             token = await refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
             console.log('token wurde aktualisiert');
-        },(token.expireSec/10)*1000)
-    },(token.expireSec/10)*1000);
+        },(token.expireSec/3.33)*1000)
+    },(token.expireSec/3.33)*1000);
 
 
     //get image and temperature from camera
-    setInterval(function (){
-        getImage(user.ip,token.accessToken, 'img');
+    setInterval( () => {
+         getImage(user.ip,token.accessToken, 'img');
     }, 1000/hertz);
 
-    setInterval(function (){
-        getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
+    setInterval( () => {
+         getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
     }, 300);
 }
 
