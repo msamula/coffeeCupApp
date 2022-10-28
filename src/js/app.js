@@ -46,24 +46,20 @@ try {
     },1);
 
 
+    getImage(user.ip,token.accessToken, 'img');
+    getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
 
-    //refresh the token
-    setTimeout(()=>{
-        setInterval(async ()=>{
-            token = await refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
-            console.log('token wurde aktualisiert');
-        },(token.expireSec/60)*1000)
-    },(token.expireSec/60)*1000);
+    setInterval(async ()=>{
+        //refresh the token
+        token = await refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
+        console.log('token wurde aktualisiert');
 
+        //get image and temperature from camera
+        getImage(user.ip,token.accessToken, 'img');
+        getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
 
-    //get image and temperature from camera
-    setInterval( () => {
-         getImage(user.ip,token.accessToken, 'img');
-    }, 1000/hertz);
+    },(token.expireSec/60)*1000)
 
-    setInterval( () => {
-         getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
-    }, 300);
 }
 
 catch (err) {

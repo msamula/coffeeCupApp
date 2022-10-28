@@ -20,5 +20,6 @@ export async function getImage(ip, token, imgID)
 
         end = new Date();
         console.log(end.getTime() - start.getTime() + ' ms [Image]');
+        await getImage(ip, token, imgID);
     }
 }

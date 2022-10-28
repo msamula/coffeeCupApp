@@ -68,5 +68,6 @@ export function getTemp(ip, token, path, threshold) {
 
             end = new Date();
             console.log(end.getTime()-start.getTime() + 'ms [Data]');
+            getTemp(ip, token, path, threshold);
         })
 }
