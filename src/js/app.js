@@ -11,21 +11,14 @@ import {getJobInfo} from "./dataAccess/getJobInfo";
 import {addEventListener} from "./userInterface/eventListener";
 import {drawAOI} from "./userInterface/drawAOI";
 
-
-
 //camera settings
 let ipAddress = 'localhost:8080';
-let hertz = 9;
-
 
 //MAIN FUNCTION
-
-//load function for button
-window.addEventListener('DOMContentLoaded', () => {
-    addEventListener();
-});
-
 try {
+    //load function for button
+    addEventListener();
+
 
     //create user and get token
     let user = new User(ipAddress,'irsxApp', 'MnrY2L86pEQr53%216' /*MnrY2L86pEQr53!6*/, 'administrator', 'administrator');
@@ -34,7 +27,6 @@ try {
 
     //get thresholds and coordinates for aoi from the COFFEE CUP JOB!
     let jobInfo = getJobInfo(user.ip,token.accessToken,'/jobs','Coffeecup');
-
 
 
     //draw AOI's
@@ -50,6 +42,7 @@ try {
     getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
 
     setInterval(async ()=>{
+
         //refresh the token
         token = await refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
         console.log('token wurde aktualisiert');
@@ -58,10 +51,8 @@ try {
         getImage(user.ip,token.accessToken, 'img');
         getTemp(user.ip ,token.accessToken,'/results',jobInfo[0][2]);
 
-    },(token.expireSec/60)*1000)
-
+    },(token.expireSec/3.33)*1000)
 }
-
 catch (err) {
     console.log(err);
 }
