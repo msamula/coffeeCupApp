@@ -1,7 +1,7 @@
 // get the actual temperature and the fill level and show their values in html
+let start, end;
 
 export function getTemp(ip, token, path, threshold) {
-    let start, end;
     start = new Date();
 
     let fillLevel = document.getElementById('fillLevel');

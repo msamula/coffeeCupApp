@@ -1,7 +1,8 @@
 //get the camera image
+let start, end;
+
 export async function getImage(ip, token, imgID)
 {
-    let start, end;
     start = new Date();
 
     let image = document.getElementById(imgID);
