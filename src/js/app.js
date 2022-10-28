@@ -52,8 +52,8 @@ try {
         setInterval(async ()=>{
             token = await refreshToken(user.ip,user.clientID,user.clientSecret,token.refreshToken);
             console.log('token wurde aktualisiert');
-        },(token.expireSec/3.33)*1000)
-    },(token.expireSec/3.33)*1000);
+        },(token.expireSec/60)*1000)
+    },(token.expireSec/60)*1000);
 
 
     //get image and temperature from camera

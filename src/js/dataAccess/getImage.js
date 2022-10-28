@@ -20,8 +20,4 @@ export async function getImage(ip, token, imgID)
         end = new Date();
         console.log(end.getTime() - start.getTime() + ' ms [Image]');
     }
-
-    if (response.status !== 200) {
-        image.src = './pics/noImage.jpg';
-    }
 }
