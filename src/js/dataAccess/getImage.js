@@ -20,6 +20,8 @@ export async function getImage(ip, token, imgID)
 
         end = new Date();
         console.log(end.getTime() - start.getTime() + ' ms [Image]');
+
+        //start new request after the previous one is done
         await getImage(ip, token, imgID);
     }
 }

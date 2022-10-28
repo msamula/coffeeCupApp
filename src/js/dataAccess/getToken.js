@@ -1,12 +1,25 @@
-import {Token} from "./Models";
+//Token Model
+class Token {
+    constructor(accessToken, type, expireSec, scope, refreshToken, iat, exp) {
+        this.accessToken = accessToken;
+        this.type = type;
+        this.expireSec = expireSec;
+        this.scope = scope;
+        this.refreshToken = refreshToken;
+        this.iat = iat;
+        this.exp = exp;
+    }
+}
 
-let xmlHttp = new XMLHttpRequest();
+
 
 //GET token function
 export function getToken(ip,cliId,cliSecret,user,password)
 {
     let token;
     let url = `http://${ip}/api/oauth/token?client_id=${cliId}&client_secret=${cliSecret}&grant_type=password&username=${user}&password=${password}`;
+
+    let xmlHttp = new XMLHttpRequest();
 
     xmlHttp.open('POST', url, false);
     xmlHttp.setRequestHeader('accept', 'application/json');

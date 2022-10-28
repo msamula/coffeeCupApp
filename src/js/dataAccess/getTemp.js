@@ -1,8 +1,10 @@
-// get the actual temperature and the fill level and show their values in html
+// get the actual temperature, fill level and show their values in html
 let start, end;
 
 export function getTemp(ip, token, path, threshold) {
     start = new Date();
+
+    //get html id's
 
     let fillLevel = document.getElementById('fillLevel');
     let cupTemp = document.getElementById('cupTemp');
@@ -11,6 +13,8 @@ export function getTemp(ip, token, path, threshold) {
     let sign = document.getElementById('sign');
 
     let maxTemp = threshold-273.15;
+
+    //get request
 
     fetch(`http://${ip}/api${path}`, {
         headers: {
@@ -23,6 +27,8 @@ export function getTemp(ip, token, path, threshold) {
 
             let percantage = ((json.results[0].value[0]/json.results[2].value[0])*100).toFixed(1);
             let temperature = (json.results[4].value[0]-273.15).toFixed(1);
+
+            // data to html
 
             fillLevel.innerHTML = `${percantage}%`;
             cupTemp.innerHTML   = `${temperature}°C`;
@@ -68,6 +74,8 @@ export function getTemp(ip, token, path, threshold) {
 
             end = new Date();
             console.log(end.getTime()-start.getTime() + 'ms [Data]');
+
+            //start new request after the previous one is done
             getTemp(ip, token, path, threshold);
         })
 }
