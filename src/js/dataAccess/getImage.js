@@ -1,16 +1,28 @@
 //get the camera image
-let start, end;
+import {refreshToken} from "./getToken";
+
+let start, end, now;
+let expireTime
 
 export async function getImage(ip, token, imgID)
 {
     start = new Date();
+    now = new Date();
 
     let image = document.getElementById(imgID);
+
+    expireTime = token.exp*1000;
+
+    console.log((expireTime - now)/1000);
+
+    if( ((expireTime - now)/1000) < 580){
+        token = await refreshToken(ip, 'irsxApp', 'MnrY2L86pEQr53!6', token.refreshToken);
+    }
 
     let response = await fetch(`http://${ip}/api/images/live`, {
         headers: {
             'accept': 'image/bmp',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token.accessToken}`
         }
     })
 
@@ -22,6 +34,6 @@ export async function getImage(ip, token, imgID)
         console.log(end.getTime() - start.getTime() + ' ms [Image]');
 
         //start new request after the previous one is done
-        await getImage(ip, token, imgID);
+        getImage(ip, token, imgID);
     }
 }

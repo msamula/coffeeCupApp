@@ -2,7 +2,7 @@
 let start, end;
 
 export function getTemp(ip, token, path, threshold) {
-    start = new Date();
+/*    start = new Date();*/
 
     //get html id's
 
@@ -19,7 +19,7 @@ export function getTemp(ip, token, path, threshold) {
     fetch(`http://${ip}/api${path}`, {
         headers: {
             'accept': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token.accessToken}`
         }
     })
         .then((response) => response.json())
@@ -72,10 +72,10 @@ export function getTemp(ip, token, path, threshold) {
                 sign.className = 'alert blink';
             }
 
-            end = new Date();
-            console.log(end.getTime()-start.getTime() + 'ms [Data]');
+/*            end = new Date();
+            console.log(end.getTime()-start.getTime() + 'ms [Data]');*/
 
             //start new request after the previous one is done
-            getTemp(ip, token, path, threshold);
+            //getTemp(ip, token, path, threshold);
         })
 }
