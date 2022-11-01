@@ -19,8 +19,8 @@ export function drawAOI(pointsArray){
                 }
                 ctx.closePath();
                 ctx.lineWidth   = 2;
-                ctx.strokeStyle = "rgba(61, 168, 245, 0.8)";
-                ctx.fillStyle   = "rgba(61, 168, 245, 0.2)";
+                ctx.strokeStyle = 'rgba(61, 168, 245, 0.8)';
+                ctx.fillStyle   = 'rgba(61, 168, 245, 0.2)';
                 ctx.stroke();
                 ctx.fill();
             }
@@ -32,11 +32,25 @@ export function drawAOI(pointsArray){
                     ctx.lineTo(pointsArray[i][j][0], pointsArray[i][j][1]);
                 }
                 ctx.lineWidth   = 2;
-                ctx.strokeStyle = "rgba(61, 168, 245, 0.8)";
+                ctx.strokeStyle = 'rgba(61, 168, 245, 0.8)';
                 ctx.stroke();
             }
 
             if(pointsArray[i][0] === 'Ellipse' ||  pointsArray[i][0] === 'EllipseLine'){
+                let width  = (Math.abs(pointsArray[i][1][0] - pointsArray[i][2][0])/2);
+                let height = (Math.abs(pointsArray[i][2][1] - pointsArray[i][3][1])/2);
+                let x = pointsArray[i][1][0] + width;
+                let y = pointsArray[i][2][1] + height;
+
+                ctx.beginPath();
+                ctx.ellipse(x, y, width, height, 0, 0, 2 * Math.PI, false);
+                ctx.stroke();
+
+                if(pointsArray[i][0] === 'Ellipse'){
+                    ctx.fillStyle = 'rgba(61, 168, 245, 0.2)';
+                    ctx.fill();
+                }
+
             }
         }
     }
