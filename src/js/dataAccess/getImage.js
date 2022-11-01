@@ -14,7 +14,7 @@ export async function getImage(ip)
 
     console.log((expireTime - now)/1000);
 
-    if( ((expireTime - now)/1000) < 300){
+    if( ((expireTime - now)/1000) < 580){
         await refreshToken(ip, 'irsxApp', 'MnrY2L86pEQr53!6', token.refreshToken);
     }
 

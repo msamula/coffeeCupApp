@@ -21,20 +21,24 @@ try {
     //load function for button
     addEventListener();
 
+
     //get token
     getToken(ipAddress, clientID, clientSecret, user, password);
+
 
     //get thresholds and coordinates for aoi from the COFFEE CUP JOB!
     let jobInfo = getJobInfo(ipAddress,'Coffeecup');
 
-    //draw AOI's
-    drawAOI('img', 'imgCanvas', jobInfo[1]);    // jobInfo[1] => coordinates of aoi
+
+    //draw AOI's / jobInfo[1] => coordinates of aoi
+    drawAOI(jobInfo[1]);
+
 
     //get image and temperature from camera
     getImage(ipAddress);
     getTemp(ipAddress, jobInfo[0][2]);
 }
-catch (err)
+catch(err)
 {
     console.log(err);
 }
