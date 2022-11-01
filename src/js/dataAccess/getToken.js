@@ -1,3 +1,5 @@
+export let token;
+
 //Token Model
 class Token {
     constructor(accessToken, type, expireSec, scope, refreshToken, iat, exp) {
@@ -10,8 +12,6 @@ class Token {
         this.exp = exp;
     }
 }
-
-export let token;
 
 //GET token function
 export function getToken(ip,cliId,cliSecret,user,password)

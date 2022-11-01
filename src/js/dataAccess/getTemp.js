@@ -81,4 +81,7 @@ export function getTemp(ip, threshold) {
             //start new request after the previous one is done
             getTemp(ip, threshold);
         })
+        .catch(()=>{
+            getTemp(ip, threshold);
+        })
 }
