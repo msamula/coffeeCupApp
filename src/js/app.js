@@ -31,7 +31,7 @@ try {
     drawAOI('img', 'imgCanvas', jobInfo[1]);    // jobInfo[1] => coordinates of aoi
 
     //get image and temperature from camera
-    getImage(ipAddress, token, 'img');
+    getImage(ipAddress, token);
     //getTemp(ipAddress, token,'/results',jobInfo[0][2]);
 }
 catch (err)

@@ -1,16 +1,14 @@
 //get the camera image
 import {refreshToken} from "./getToken";
 
-let start, end, now;
-let expireTime
+let now, end;
+let expireTime;
 
-export async function getImage(ip, token, imgID)
+export async function getImage(ip, token)
 {
-    start = new Date();
+    let image = document.getElementById('img');
+
     now = new Date();
-
-    let image = document.getElementById(imgID);
-
     expireTime = token.exp*1000;
 
     console.log((expireTime - now)/1000);
@@ -31,9 +29,9 @@ export async function getImage(ip, token, imgID)
         image.src = URL.createObjectURL(blob);
 
         end = new Date();
-        console.log(end.getTime() - start.getTime() + ' ms [Image]');
+        console.log(end.getTime() - now.getTime() + ' ms [Image]');
 
         //start new request after the previous one is done
-        getImage(ip, token, imgID);
+        getImage(ip, token);
     }
 }
