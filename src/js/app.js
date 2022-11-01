@@ -25,14 +25,14 @@ try {
     getToken(ipAddress, clientID, clientSecret, user, password);
 
     //get thresholds and coordinates for aoi from the COFFEE CUP JOB!
-    let jobInfo = getJobInfo(ipAddress,'/jobs','Coffeecup');
+    let jobInfo = getJobInfo(ipAddress,'Coffeecup');
 
     //draw AOI's
     drawAOI('img', 'imgCanvas', jobInfo[1]);    // jobInfo[1] => coordinates of aoi
 
     //get image and temperature from camera
     getImage(ipAddress);
-    getTemp(ipAddress,'/results',jobInfo[0][2]);
+    getTemp(ipAddress, jobInfo[0][2]);
 }
 catch (err)
 {

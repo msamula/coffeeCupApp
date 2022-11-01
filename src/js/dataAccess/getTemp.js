@@ -4,7 +4,7 @@ import {token} from "./getToken";
 
 let start, end;
 
-export function getTemp(ip, path, threshold) {
+export function getTemp(ip, threshold) {
     start = new Date();
 
     //get html id's
@@ -19,7 +19,7 @@ export function getTemp(ip, path, threshold) {
 
     //get request
 
-    fetch(`http://${ip}/api${path}`, {
+    fetch(`http://${ip}/api/results`, {
         headers: {
             'accept': 'application/json',
             'Authorization': `Bearer ${token.accessToken}`
@@ -79,6 +79,6 @@ export function getTemp(ip, path, threshold) {
             console.log(end.getTime()-start.getTime() + 'ms [Data]');
 
             //start new request after the previous one is done
-            getTemp(ip, path, threshold);
+            getTemp(ip, threshold);
         })
 }

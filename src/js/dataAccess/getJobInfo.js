@@ -34,7 +34,7 @@ function getThresholds(json) {
 }
 
 //GET all coordinates and all thresholds from job
-export function getJobInfo(ip, path, jobID){
+export function getJobInfo(ip, jobID){
 
     let results =[];
 
@@ -48,7 +48,7 @@ export function getJobInfo(ip, path, jobID){
         }
     };
 
-    request.open('GET', `http://${ip}/api${path}/${jobID}`, false);
+    request.open('GET', `http://${ip}/api/jobs/${jobID}`, false);
     request.setRequestHeader('Authorization', `Bearer ${token.accessToken}`);
     request.setRequestHeader('Accept', 'application/json');
     request.send(jobID);
