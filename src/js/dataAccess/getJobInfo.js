@@ -1,4 +1,7 @@
 // coordinates for the area of interest(aoi) from job
+
+import {token} from "./getToken";
+
 function getPoints(json) {
     let roisCount = json.rois.length;
 
@@ -31,7 +34,7 @@ function getThresholds(json) {
 }
 
 //GET all coordinates and all thresholds from job
-export function getJobInfo(ip, token, path, jobID){
+export function getJobInfo(ip, path, jobID){
 
     let results =[];
 
@@ -46,7 +49,7 @@ export function getJobInfo(ip, token, path, jobID){
     };
 
     request.open('GET', `http://${ip}/api${path}/${jobID}`, false);
-    request.setRequestHeader('Authorization', `Bearer ${token}`);
+    request.setRequestHeader('Authorization', `Bearer ${token.accessToken}`);
     request.setRequestHeader('Accept', 'application/json');
     request.send(jobID);
 

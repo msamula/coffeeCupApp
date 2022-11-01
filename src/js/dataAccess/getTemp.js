@@ -1,8 +1,11 @@
 // get the actual temperature, fill level and show their values in html
+
+import {token} from "./getToken";
+
 let start, end;
 
-export function getTemp(ip, token, path, threshold) {
-/*    start = new Date();*/
+export function getTemp(ip, path, threshold) {
+    start = new Date();
 
     //get html id's
 
@@ -72,10 +75,10 @@ export function getTemp(ip, token, path, threshold) {
                 sign.className = 'alert blink';
             }
 
-/*            end = new Date();
-            console.log(end.getTime()-start.getTime() + 'ms [Data]');*/
+            end = new Date();
+            console.log(end.getTime()-start.getTime() + 'ms [Data]');
 
             //start new request after the previous one is done
-            //getTemp(ip, token, path, threshold);
+            getTemp(ip, path, threshold);
         })
 }

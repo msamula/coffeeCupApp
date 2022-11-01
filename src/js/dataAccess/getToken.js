@@ -11,12 +11,12 @@ class Token {
     }
 }
 
-
+export let token;
 
 //GET token function
 export function getToken(ip,cliId,cliSecret,user,password)
 {
-    let token;
+
     let url = `http://${ip}/api/oauth/token?client_id=${cliId}&client_secret=${cliSecret}&grant_type=password&username=${user}&password=${password}`;
 
     let xmlHttp = new XMLHttpRequest();
@@ -33,12 +33,10 @@ export function getToken(ip,cliId,cliSecret,user,password)
     }
 
     xmlHttp.send();
-    return token;
 }
 
 //Refresh token function
 export async function refreshToken(ip,cliId,cliSecret,refreshToken){
-    let token;
     let url = `http://${ip}/api/oauth/token?client_id=${cliId}&client_secret=${cliSecret}&grant_type=refresh_token&refresh_token=${refreshToken}`;
 
     let response =await fetch(url,{
@@ -51,6 +49,4 @@ export async function refreshToken(ip,cliId,cliSecret,refreshToken){
     let json = await response.json();
 
     token = await new Token(json['access_token'],json['token_type'],json['expires_in'],json['scope'],json['refresh_token'],json['iat'],json['exp']);
-    return token;
-
 }
