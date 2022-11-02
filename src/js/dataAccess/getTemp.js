@@ -1,11 +1,9 @@
+
 // get the actual temperature, fill level and show their values in html
 
 import {token} from "./getToken";
 
-/*let start, end;*/
-
 export function getData(ip, threshold) {
-    //start = new Date();
 
     //get html id's
 
@@ -17,7 +15,7 @@ export function getData(ip, threshold) {
 
     let maxTemp = threshold-273.15;
 
-    //get request
+    //get and display data
 
     fetch(`http://${ip}/api/results`, {
         headers: {
@@ -28,19 +26,19 @@ export function getData(ip, threshold) {
         .then((response) => response.json())
         .then((json) => {
 
-            let percantage = ((json.results[0].value[0]/json.results[2].value[0])*100).toFixed(1);
+            let level = ((json.results[0].value[0]/json.results[2].value[0])*100).toFixed(1);
             let temperature = (json.results[4].value[0]-273.15).toFixed(1);
 
             // data to html
 
-            fillLevel.innerHTML = `${percantage}%`;
+            fillLevel.innerHTML = `${level}%`;
             cupTemp.innerHTML   = `${temperature}°C`;
 
-            if(percantage == 100){
+            if(level == 100){
                 fullCup.innerHTML='YES';
                 fullCup.style.webkitTextFillColor = 'green';}
 
-            else if(percantage < 100){
+            else if(level < 100){
                 fullCup.innerHTML='NO';
                 fullCup.style.webkitTextFillColor = 'red';
             }
@@ -54,29 +52,26 @@ export function getData(ip, threshold) {
                 hotCoffee.style.webkitTextFillColor = 'red';
             }
 
-            if(percantage >= 98.8 && temperature >= maxTemp){
+            if(level >= 98.8 && temperature >= maxTemp){
                 sign.innerHTML = 'Coffee <br> READY';
                 sign.className = 'alert';
                 sign.style.backgroundColor = 'rgba(2, 181, 41,1)';
             }
 
-            else if(percantage < 98.8 && temperature >= maxTemp){
+            else if(level < 98.8 && temperature >= maxTemp){
                 sign.innerHTML = 'Coffee <br>TOO LOW';
                 sign.className = 'alert';
                 sign.style.backgroundColor = 'rgba(217, 2, 2,1)';
             }
-            else if(percantage < 75 && percantage >= 70 && temperature < 45){
+            else if(level < 75 && level >= 70 && temperature < 45){
                 sign.innerHTML = 'Coffee <br>COLD';
                 sign.className = 'alert';
                 sign.style.backgroundColor = 'rgba(0, 159, 245,1)';
             }
-            else if(percantage < 100 && temperature < maxTemp){
+            else if(level < 100 && temperature < maxTemp){
                 sign.innerHTML = 'Coffee <br> COMING';
                 sign.className = 'alert blink';
             }
-
-/*            end = new Date();
-            console.log(end.getTime()-start.getTime() + 'ms [Data]');*/
 
             //start new request after the previous one is done
             getData(ip, threshold);

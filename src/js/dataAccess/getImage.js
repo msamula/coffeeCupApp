@@ -2,10 +2,6 @@
 import {checkToken} from "./getToken";
 import {token} from "./getToken";
 
-
-
-//let end;
-
 export async function getImage(ip)
 {
     let image = document.getElementById('img');
@@ -22,9 +18,6 @@ export async function getImage(ip)
     if (response.status === 200) {
         let blob = await response.blob();
         image.src = URL.createObjectURL(blob);
-
-/*        end = new Date();
-        console.log(end.getTime() - now.getTime() + ' ms [Image]');*/
 
         //start new request after the previous one is done
         getImage(ip);
