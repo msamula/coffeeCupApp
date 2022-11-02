@@ -1,8 +1,8 @@
 //get the camera image
-import {refreshToken} from "./getToken";
+import {checkToken} from "./getToken";
 import {token} from "./getToken";
 
-let now, expireTime;
+
 
 //let end;
 
@@ -10,14 +10,7 @@ export async function getImage(ip)
 {
     let image = document.getElementById('img');
 
-    now = new Date();
-    expireTime = token.exp*1000;
-
-    //console.log((expireTime - now)/1000);
-
-    if( ((expireTime - now)/1000) < 60){
-        await refreshToken(ip, 'irsxApp', 'MnrY2L86pEQr53!6', token.refreshToken);
-    }
+    await checkToken(ip);
 
     let response = await fetch(`http://${ip}/api/images/live`, {
         headers: {
