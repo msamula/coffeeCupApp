@@ -2,10 +2,10 @@
 
 import {token} from "./getToken";
 
-let start, end;
+/*let start, end;*/
 
-export function getTemp(ip, threshold) {
-    start = new Date();
+export function getData(ip, threshold) {
+    //start = new Date();
 
     //get html id's
 
@@ -75,13 +75,13 @@ export function getTemp(ip, threshold) {
                 sign.className = 'alert blink';
             }
 
-            end = new Date();
-            console.log(end.getTime()-start.getTime() + 'ms [Data]');
+/*            end = new Date();
+            console.log(end.getTime()-start.getTime() + 'ms [Data]');*/
 
             //start new request after the previous one is done
-            getTemp(ip, threshold);
+            getData(ip, threshold);
         })
         .catch(()=>{
-            getTemp(ip, threshold);
+            getData(ip, threshold);
         })
 }

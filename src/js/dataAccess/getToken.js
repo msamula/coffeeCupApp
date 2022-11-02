@@ -1,3 +1,4 @@
+//TOKEN used by other functions
 export let token;
 
 //Token Model
@@ -13,7 +14,7 @@ class Token {
     }
 }
 
-//GET token function
+//get token function
 export function getToken(ip,cliId,cliSecret,user,password)
 {
 

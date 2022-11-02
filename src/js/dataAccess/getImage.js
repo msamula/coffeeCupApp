@@ -2,8 +2,9 @@
 import {refreshToken} from "./getToken";
 import {token} from "./getToken";
 
-let now, end;
-let expireTime;
+let now, expireTime;
+
+//let end;
 
 export async function getImage(ip)
 {
@@ -12,9 +13,9 @@ export async function getImage(ip)
     now = new Date();
     expireTime = token.exp*1000;
 
-    console.log((expireTime - now)/1000);
+    //console.log((expireTime - now)/1000);
 
-    if( ((expireTime - now)/1000) < 100){
+    if( ((expireTime - now)/1000) < 60){
         await refreshToken(ip, 'irsxApp', 'MnrY2L86pEQr53!6', token.refreshToken);
     }
 
@@ -29,8 +30,8 @@ export async function getImage(ip)
         let blob = await response.blob();
         image.src = URL.createObjectURL(blob);
 
-        end = new Date();
-        console.log(end.getTime() - now.getTime() + ' ms [Image]');
+/*        end = new Date();
+        console.log(end.getTime() - now.getTime() + ' ms [Image]');*/
 
         //start new request after the previous one is done
         getImage(ip);

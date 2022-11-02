@@ -2,7 +2,7 @@
 
 import {token} from "./getToken";
 
-function getPoints(json) {
+function getCoordinates(json) {
     let roisCount = json.rois.length;
 
     let result = [];
@@ -44,7 +44,7 @@ export function getJobInfo(ip, jobID){
         if(request.readyState === 4 && request.status === 200) {
 
         let json = JSON.parse(request.response);
-        results = [getThresholds(json), getPoints(json)];
+        results = [getThresholds(json), getCoordinates(json)];
         }
     };
 

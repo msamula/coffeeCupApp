@@ -4,19 +4,19 @@ import '../css/custom.css';
 
 import {getToken, refreshToken} from "./dataAccess/getToken";
 import {getImage} from "./dataAccess/getImage";
-import {getTemp} from "./dataAccess/getTemp";
+import {getData} from "./dataAccess/getTemp";
 import {getJobInfo} from "./dataAccess/getJobInfo";
 import {addEventListener} from "./userInterface/eventListener";
 import {drawAOI} from "./userInterface/drawAOI";
 
-//camera settings
+//login data
 let ipAddress = 'localhost:8080';
 let clientID = 'irsxApp';
 let clientSecret = 'MnrY2L86pEQr53!6';
 let user = 'administrator';
 let password = 'administrator';
 
-//MAIN FUNCTION
+//MAIN PART
 try {
     //load function for button
     addEventListener();
@@ -36,7 +36,7 @@ try {
 
     //get image and temperature from camera
     getImage(ipAddress);
-    getTemp(ipAddress, jobInfo[0][2]);
+    getData(ipAddress, jobInfo[0][2]);
 }
 catch(err)
 {
