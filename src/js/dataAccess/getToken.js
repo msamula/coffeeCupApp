@@ -55,11 +55,8 @@ async function refreshToken(ip,cliId,cliSecret,refreshToken){
 //check if token is expired
 let now, expireTime;
 export async function checkToken(ip){
-
     now = new Date();
     expireTime = token.exp*1000;
-
-    console.log((expireTime - now)/1000);
 
     if( ((expireTime - now)/1000) < 60 ){
          await refreshToken(ip, 'irsxApp', 'MnrY2L86pEQr53!6', token.refreshToken);
