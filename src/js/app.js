@@ -34,7 +34,7 @@ try {
     drawAOI(jobInfo[1]);
 
 
-    //get image and temperature from camera
+    //get image and data from camera
     getImage(ipAddress);
     getData(ipAddress, jobInfo[0][2]);
 }
