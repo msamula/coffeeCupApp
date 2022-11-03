@@ -1,12 +1,20 @@
 
 // get the actual temperature, fill level and show their values in html
 
-import {token} from "./getToken";
+import {token, expireTime} from "./getToken";
 
-export function getData(ip, threshold) {
+function awaitNewToken(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export async function getData(ip, threshold) {
+
+    if(expireTime < 61){
+        console.log('waited');
+        await awaitNewToken(500);
+    }
 
     //get html id's
-
     let fillLevel = document.getElementById('fillLevel');
     let cupTemp = document.getElementById('cupTemp');
     let fullCup = document.getElementById('fullCup');
@@ -15,8 +23,8 @@ export function getData(ip, threshold) {
 
     let maxTemp = threshold-273.15;
 
-    //get and display data
 
+    //get and display data
     fetch(`http://${ip}/api/results`, {
         headers: {
             'accept': 'application/json',
@@ -34,11 +42,11 @@ export function getData(ip, threshold) {
             fillLevel.innerHTML = `${level}%`;
             cupTemp.innerHTML   = `${temperature}°C`;
 
-            if(level == 100){
+            if(level >= 98.8){
                 fullCup.innerHTML='YES';
                 fullCup.style.webkitTextFillColor = 'green';}
 
-            else if(level < 100){
+            else if(level < 98.8){
                 fullCup.innerHTML='NO';
                 fullCup.style.webkitTextFillColor = 'red';
             }
@@ -68,7 +76,7 @@ export function getData(ip, threshold) {
                 sign.className = 'alert';
                 sign.style.backgroundColor = 'rgba(0, 159, 245,1)';
             }
-            else if(level < 100 && temperature < maxTemp){
+            else if(level < 98.8 && temperature < maxTemp){
                 sign.innerHTML = 'Coffee <br> COMING';
                 sign.className = 'alert blink';
             }
