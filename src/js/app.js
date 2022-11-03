@@ -7,7 +7,7 @@ import {getToken} from "./dataAccess/getToken";
 import {getJobInfo} from "./dataAccess/getJobInfo";
 import {drawAOI} from "./userInterface/drawAOI";
 import {getImage} from "./dataAccess/getImage";
-import {getData} from "./dataAccess/getTemp";
+import {getData} from "./dataAccess/getData";
 
 
 //login data
