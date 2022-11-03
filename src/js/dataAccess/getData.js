@@ -9,8 +9,7 @@ function awaitNewToken(ms) {
 
 export async function getData(ip, threshold) {
 
-    if(expireTime < 61){
-        console.log('waited');
+    if(expireTime < 60.3){
         await awaitNewToken(500);
     }
 

@@ -59,7 +59,7 @@ export async function checkToken(ip){
     now = new Date();
     expireTime = (token.exp*1000 - now)/1000;
 
-    if(expireTime <= 60 ){
+    if(expireTime <= 60){
          await refreshToken(ip, 'irsxApp', 'MnrY2L86pEQr53!6', token.refreshToken);
     }
 }
