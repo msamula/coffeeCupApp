@@ -7,7 +7,7 @@ function showAOI(canvasID, aoiButton) {
     canvas.style.display === 'none' ? aoiBtn.innerHTML = 'show  AOI'    : aoiBtn.innerHTML = 'hide AOI';
 }
 
-export function addEventListener() {
+export function btnEvents() {
     document.getElementById('aoiBtn').addEventListener('click',()=>{
         showAOI('imgCanvas', 'aoiBtn');
     });

@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/custom.css';
 
-import {addEventListener} from "./userInterface/eventListener";
+import {btnEvents} from "./userInterface/eventListener";
 import {getToken} from "./dataAccess/getToken";
 import {getJobInfo} from "./dataAccess/getJobInfo";
 import {drawAOI} from "./userInterface/drawAOI";
@@ -20,8 +20,8 @@ let password = 'administrator';
 //--- MAIN PART ---
 window.addEventListener('DOMContentLoaded', () => {
 
-    //load function for button
-    addEventListener();
+//load function for button
+    btnEvents();
 
 
 //get token
