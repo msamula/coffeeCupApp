@@ -18,23 +18,27 @@ let user = 'administrator';
 let password = 'administrator';
 
 //--- MAIN PART ---
+window.addEventListener('DOMContentLoaded', () => {
 
-//load function for button
-addEventListener();
+    //load function for button
+    addEventListener();
 
 
 //get token
-getToken(ipAddress, clientID, clientSecret, user, password);
+    getToken(ipAddress, clientID, clientSecret, user, password);
 
 
 //get thresholds and coordinates for aoi from the COFFEE CUP JOB!
-let jobInfo = getJobInfo(ipAddress,'Coffeecup');
+    let jobInfo = getJobInfo(ipAddress,'Coffeecup');
 
 
 //draw AOI's / jobInfo[1] => coordinates of aoi
-drawAOI(jobInfo[1]);
+    drawAOI(jobInfo[1]);
 
 
 //get image and data from camera
-getImage(ipAddress);
-getData(ipAddress, jobInfo[0][2]);
+    getImage(ipAddress);
+    getData(ipAddress, jobInfo[0][2]);
+
+});
+
