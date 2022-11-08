@@ -81,30 +81,53 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
+
+
 /*blinking sign*/
 .blink {
     animation: blink-animation 1.5s linear infinite;
-    -webkit-animation: blink-animation 1.5s linear infinite;
+}
+.blink-fast{
+    animation: blink-animation 0.5s linear infinite;
 }
 @keyframes blink-animation {
     0% {
-        background-color: rgba(252, 164, 0,0)
+        text-align: center;
+        white-space: nowrap;
+        font-weight: bold;
+        border-width: 4px;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        -webkit-text-fill-color: rgb(0,0,0);
+        padding: 1em 1em;
     }
     50% {
-        background-color: rgba(252, 164, 0,1)
+        background-color: rgba(255,255,255,0.5);
+        text-shadow: 0px 0px 2px #131415;
+        text-align: center;
+        white-space: nowrap;
+        font-weight: bold;
+        border-width: 4px;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        -webkit-text-fill-color: rgb(0,0,0);
+        padding: 1em 1em;
     }
     100% {
-        background-color: rgba(252, 164, 0,0)
+        text-align: center;
+        white-space: nowrap;
+        font-weight: bold;
+        border-width: 4px;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        -webkit-text-fill-color: rgb(0,0,0);
+        padding: 1em 1em;
     }
 }
-@-webkit-keyframes blink-animation {
-    0% {
-        background-color: rgba(252, 164, 0,0)
-    }
-    50% {
-        background-color: rgba(252, 164, 0,1)
-    }
-    100% {
-        background-color: rgba(252, 164, 0,0)
-    }
+
+.sign{
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+    border-width: 4px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    -webkit-text-fill-color: rgb(0,0,0);
+    padding: 1em 1em;
 }

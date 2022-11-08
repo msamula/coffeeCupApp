@@ -18,7 +18,10 @@ export async function getData(ip, threshold) {
     let cupTemp = document.getElementById('cupTemp');
     let fullCup = document.getElementById('fullCup');
     let hotCoffee = document.getElementById('hot');
-    let sign = document.getElementById('sign');
+    let coming = document.getElementById('coming');
+    let ready = document.getElementById('ready');
+    let low = document.getElementById('low');
+    let cold = document.getElementById('cold');
 
     let maxTemp = threshold-273.15;
 
@@ -60,24 +63,29 @@ export async function getData(ip, threshold) {
             }
 
             if(level >= 98.8 && temperature >= maxTemp){
-                sign.innerHTML = 'Coffee <br> READY';
-                sign.className = 'alert';
-                sign.style.backgroundColor = 'rgba(2, 181, 41,1)';
+                ready.className = 'alert blink-fast';
+                coming.className = 'alert sign';
+                low.className = 'alert sign';
+                cold.className = 'alert sign';
             }
 
             else if(level < 98.8 && temperature >= maxTemp){
-                sign.innerHTML = 'Coffee <br>TOO LOW';
-                sign.className = 'alert';
-                sign.style.backgroundColor = 'rgba(217, 2, 2,1)';
+                ready.className = 'alert sign';
+                coming.className = 'alert sign';
+                low.className = 'alert blink-fast';
+                cold.className = 'alert sign';
             }
             else if(level < 75 && level >= 70 && temperature < 45){
-                sign.innerHTML = 'Coffee <br>COLD';
-                sign.className = 'alert';
-                sign.style.backgroundColor = 'rgba(0, 159, 245,1)';
+                ready.className = 'alert sign';
+                coming.className = 'alert sign';
+                low.className = 'alert sign';
+                cold.className = 'alert blink-fast';
             }
             else if(level < 98.8 && temperature < maxTemp){
-                sign.innerHTML = 'Coffee <br> COMING';
-                sign.className = 'alert blink';
+                ready.className = 'alert sign';
+                coming.className = 'alert blink';
+                low.className  = 'alert sign';
+                cold.className = 'alert sign';
             }
 
             //start new request after the previous one is done
