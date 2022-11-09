@@ -45,21 +45,19 @@ export async function getData(ip, threshold) {
             cupTemp.innerHTML   = `${temperature}°C`;
 
             if(level >= 98.8){
-                fullCup.innerHTML='YES';
-                fullCup.style.webkitTextFillColor = 'green';}
+                fullCup.innerHTML='<img src="./media/check.png" style="padding-right: 15px">';
+            }
 
             else if(level < 98.8){
-                fullCup.innerHTML='NO';
-                fullCup.style.webkitTextFillColor = 'red';
+                fullCup.innerHTML='<img src="./media/cancel.png" style="padding-right: 15px">';
             }
 
             if(temperature >= maxTemp){
-                hotCoffee.innerHTML='YES';
-                hotCoffee.style.webkitTextFillColor = 'green';}
+                hotCoffee.innerHTML='<img src="./media/check.png" style="padding-right: 15px">';
+            }
 
             else if(temperature < maxTemp){
-                hotCoffee.innerHTML='NO';
-                hotCoffee.style.webkitTextFillColor = 'red';
+                hotCoffee.innerHTML='<img src="./media/cancel.png" style="padding-right: 15px">';
             }
 
             if(level >= 98.8 && temperature >= maxTemp){
