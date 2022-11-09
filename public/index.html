@@ -12,11 +12,12 @@
 <body>
 <div class="container" style="margin: 3%">
     <div class="row text-center"  >
-        <div class="col-4 text-end">
-            <img class="img-fluid" src="media/logo.png" alt="company logo" style="width: 60%">
-        </div>
-        <div class="col-8 text-start" style="margin-top: 6%">
-            <h2  style="-webkit-text-fill-color: /*#6f4301*/ black; white-space: nowrap">The Coffee Cup Company</h2>
+        <div>
+            <h2 style="white-space: nowrap; text-shadow: 5px 5px 5px lightgrey">
+                The Coffee
+                    <img class="img-fluid" src="media/logo%20-%20small.png" alt="company logo" style="width: 20%; margin-top: 5px; -webkit-filter: drop-shadow(5px 5px 10px dimgray); filter: drop-shadow(5px 5px 10px dimgray);">
+                Company
+            </h2>
         </div>
     </div>
     <div class="row">
@@ -31,7 +32,7 @@
                 </div>
             </div>
             <div class="text-center" style="margin-top: 4px">
-                <button id="aoiBtn" class="btn btn-primary btn-sm" style="min-width: 80px">show AOI</button>
+                <button id="aoiBtn" class="btn btn-light btn-sm myBtn" style="min-width: 80px">show AOI</button>
             </div>
         </div>
 
@@ -70,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table" style="margin-top: 10%;">
+            <table class="table" style="margin-top: 5%; font-size: large; max-width: 60%; margin-left: 20%">
                 <thead>
                 <tr>
                     <th scope="col" colspan="4">Temperature</th>
@@ -78,13 +79,13 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td colspan="3">Cup Temperature</td>
+                    <td colspan="3">Cup temperature</td>
                     <td id="cupTemp" class="text-end"></td>
                 </tr>
                 </tbody>
             </table>
 
-            <table class="table" style="margin-top: 1%">
+            <table class="table" style="margin-top: 2%;font-size: large; max-width: 60%; margin-left: 20%">
                 <thead>
                 <tr>
                     <th scope="col" colspan="4">Level Calculations</th>

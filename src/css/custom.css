@@ -102,24 +102,31 @@
 @keyframes blink-orange {
     50% {
         background-color: rgba(252, 164, 0,1);
+        box-shadow: 3px 3px 3px 0px rgba(252, 164, 0,0.5);
     }
 }
 
 @keyframes blink-green {
     50% {
         background-color: rgba(2, 181, 41,1);
+        box-shadow: 3px 3px 3px 0px rgba(2, 181, 41,0.5);
+        transform: scale(1.1, 1.1);
     }
 }
 
 @keyframes blink-red {
     50% {
-        background-color: rgba(217, 2, 2,0.8);
+        background-color: rgba(217, 2, 2,1);
+        box-shadow: 3px 3px 3px 0px rgba(217, 2, 2,0.5);
+        transform: scale(1.1, 1.1);
     }
 }
 
 @keyframes blink-blue {
     50% {
-        background-color: rgba(0, 159, 245,0.8);
+        background-color: rgba(0, 159, 245,1);
+        box-shadow: 3px 3px 3px 0px rgba(0, 159, 245,0.5);
+        transform: scale(1.1, 1.1);
     }
 }
 
@@ -133,3 +140,9 @@
     padding: 1em 1em;
     font-family: "Gill Sans", sans-serif;
 }
+
+.myBtn{
+    background-color:#aaaaaa;
+    color:#000000;
+}
+
