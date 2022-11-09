@@ -144,5 +144,7 @@
 .myBtn{
     background-color:#aaaaaa;
     color:#000000;
+    border-width: 1px;
+    border-color: black;
 }
 
