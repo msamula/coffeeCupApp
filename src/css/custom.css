@@ -85,40 +85,41 @@
 
 /*blinking sign*/
 .blink {
-    animation: blink-animation 1.5s linear infinite;
+    animation: blink-orange 1.5s linear infinite;
 }
-.blink-fast{
-    animation: blink-animation 0.5s linear infinite;
+.blink-green{
+    animation: blink-green 0.5s linear infinite;
 }
-@keyframes blink-animation {
-    0% {
-        text-align: center;
-        white-space: nowrap;
-        font-weight: bold;
-        border-width: 4px;
-        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
-        -webkit-text-fill-color: rgb(0,0,0);
-        padding: 1em 1em;
-    }
+
+.blink-red{
+    animation: blink-red 0.5s linear infinite;
+}
+
+.blink-blue{
+    animation: blink-blue 0.5s linear infinite;
+}
+
+@keyframes blink-orange {
     50% {
-        background-color: rgba(255,255,255,0.5);
-        text-shadow: 0px 0px 2px #131415;
-        text-align: center;
-        white-space: nowrap;
-        font-weight: bold;
-        border-width: 4px;
-        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
-        -webkit-text-fill-color: rgb(0,0,0);
-        padding: 1em 1em;
+        background-color: rgba(252, 164, 0,1);
     }
-    100% {
-        text-align: center;
-        white-space: nowrap;
-        font-weight: bold;
-        border-width: 4px;
-        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
-        -webkit-text-fill-color: rgb(0,0,0);
-        padding: 1em 1em;
+}
+
+@keyframes blink-green {
+    50% {
+        background-color: rgba(2, 181, 41,1);
+    }
+}
+
+@keyframes blink-red {
+    50% {
+        background-color: rgba(217, 2, 2,0.8);
+    }
+}
+
+@keyframes blink-blue {
+    50% {
+        background-color: rgba(0, 159, 245,0.8);
     }
 }
 
@@ -130,4 +131,5 @@
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
     -webkit-text-fill-color: rgb(0,0,0);
     padding: 1em 1em;
+    font-family: "Gill Sans", sans-serif;
 }

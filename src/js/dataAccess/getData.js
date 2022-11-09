@@ -63,7 +63,7 @@ export async function getData(ip, threshold) {
             }
 
             if(level >= 98.8 && temperature >= maxTemp){
-                ready.className = 'alert blink-fast';
+                ready.className = 'alert sign blink-green';
                 coming.className = 'alert sign';
                 low.className = 'alert sign';
                 cold.className = 'alert sign';
@@ -72,18 +72,18 @@ export async function getData(ip, threshold) {
             else if(level < 98.8 && temperature >= maxTemp){
                 ready.className = 'alert sign';
                 coming.className = 'alert sign';
-                low.className = 'alert blink-fast';
+                low.className = 'alert sign blink-red';
                 cold.className = 'alert sign';
             }
             else if(level < 75 && level >= 70 && temperature < 45){
                 ready.className = 'alert sign';
                 coming.className = 'alert sign';
                 low.className = 'alert sign';
-                cold.className = 'alert blink-fast';
+                cold.className = 'alert sign blink-blue';
             }
             else if(level < 98.8 && temperature < maxTemp){
                 ready.className = 'alert sign';
-                coming.className = 'alert blink';
+                coming.className = 'alert sign blink';
                 low.className  = 'alert sign';
                 cold.className = 'alert sign';
             }
