@@ -18,6 +18,9 @@ export async function getImage(ip)
     if (response.status === 200) {
         let blob = await response.blob();
         image.src = URL.createObjectURL(blob);
+        image.onload = () => {
+            URL.revokeObjectURL(image.src);
+        }
 
         //start new request after the previous one is done
         getImage(ip);
