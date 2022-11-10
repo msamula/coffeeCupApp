@@ -3,111 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="media/logo.png">
+    <link rel="icon" type="image/x-icon" href="media/logo%20-%20small.png">
     <title>The Coffee Cup Company</title>
 </head>
-
 <script src="./bundle.js"></script>
 
-<body>
-<div class="container" style="margin: 3%">
-    <div class="row text-center"  >
-        <div>
+<body class="container text-center">
+    <div style="margin: 3%">
+        <div class="elements">
             <h2 style="white-space: nowrap; text-shadow: 5px 5px 5px lightgrey">
                 The Coffee
-                    <img class="img-fluid" src="media/logo%20-%20small.png" alt="company logo" style="width: 20%; margin-top: 5px; -webkit-filter: drop-shadow(5px 5px 10px dimgray); filter: drop-shadow(5px 5px 10px dimgray);">
+                <img class="img-fluid" src="media/logo%20-%20small.png" alt="company logo" style="width: 20%; margin-top: 5px; -webkit-filter: drop-shadow(5px 5px 10px dimgray); filter: drop-shadow(5px 5px 10px dimgray);">
                 Company
             </h2>
         </div>
-    </div>
-    <div class="row">
-
-        <div class="col-xxl-6" style="margin-top: 5%">
-            <div class="col-12 text-center">
+        <div class="row">
+            <div class="col-xxl-6" style="margin-top: 5%">
                 <div class="outsideWrapper">
                     <div class="insideWrapper">
                         <img class="rounded coveredImage" id="img" >
                         <canvas class="rounded coveringCanvas" id="imgCanvas" style="display: none"></canvas>
                     </div>
                 </div>
-            </div>
-            <div class="text-center" style="margin-top: 4px">
-                <button id="aoiBtn" class="btn btn-light btn-sm myBtn" style="min-width: 80px">show AOI</button>
-            </div>
-        </div>
 
-        <div class="col-xxl-6" style="margin-top: 5%">
-            <div>
-                <div class="row">
-                    <div class="col-3">
-                    </div>
-                    <div class="col-3">
-                        <div id="coming" class="alert sign" role="alert"  style="border-color: rgba(252, 164, 0,0.4)">
-                            Coffee<br>COMING
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div id="ready" class="alert sign" role="alert" style="border-color: rgba(2, 181, 41,0.4)">
-                            Coffee<br>READY
-                        </div>
-                    </div>
-                    <div class="col-3">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                    </div>
-                    <div class="col-3">
-                        <div id="low" class="alert sign" role="alert"  style="border-color: rgba(217, 2, 2,0.4);">
-                            Coffee<br>LOW
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div id="cold" class="alert sign" role="alert" style="border-color: rgba(0, 159, 245,0.4);">
-                            Coffee<br>COLD
-                        </div>
-                    </div>
-                    <div class="col-3">
-                    </div>
+                <div class="text-center" style="margin-top: 4px">
+                    <button id="aoiBtn" class="btn btn-light btn-sm myBtn elements" style="min-width: 80px">show AOI</button>
                 </div>
             </div>
-            <table class="table" style="margin-top: 5%; font-size: large; max-width: 60%; margin-left: 20%">
-                <thead>
-                <tr>
-                    <th scope="col" colspan="4">Temperature</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td colspan="3">Cup temperature</td>
-                    <td id="cupTemp" class="text-end"></td>
-                </tr>
-                </tbody>
-            </table>
 
-            <table class="table" style="margin-top: 2%;font-size: large; max-width: 60%; margin-left: 20%">
-                <thead>
-                <tr>
-                    <th scope="col" colspan="4">Level Calculations</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td colspan="3">Cup fill level</td>
-                    <td id="fillLevel" class="text-end"></td>
-                </tr>
-                <tr>
-                    <td colspan="3">Cup full</td>
-                    <td id="fullCup" style="font-weight: bold" class="text-end"></td>
-                </tr>
-                <tr>
-                    <td colspan="3">Coffee hot</td>
-                    <td id="hot" style="font-weight: bold" class="text-end"></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="col-xxl-6" style="margin-top: 5%">
+                <div>
+                    <div class="row elements">
+                        <div class="col-3">
+                        </div>
+
+                        <div class="col-3">
+                            <div id="coming" class="alert sign" role="alert"  style="border-color: rgba(252, 164, 0,0.4)">
+                                Coffee<br>COMING
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div id="ready" class="alert sign" role="alert" style="border-color: rgba(2, 181, 41,0.4)">
+                                Coffee<br>READY
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    <div class="row elements">
+                        <div class="col-3">
+                        </div>
+
+                        <div class="col-3">
+                            <div id="low" class="alert sign" role="alert"  style="border-color: rgba(217, 2, 2,0.4);">
+                                Coffee<br>LOW
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div id="cold" class="alert sign" role="alert" style="border-color: rgba(0, 159, 245,0.4);">
+                                Coffee<br>COLD
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+                <div class="elements">
+                    <table class="table text-start" style="margin-top: 5%; font-size: large; max-width: 60%; margin-left: 20%">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="4">Temperature</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">Cup temperature</td>
+                                <td id="cupTemp" class="text-end"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table text-start" style="margin-top: 2%;font-size: large; max-width: 60%; margin-left: 20%">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="4">Level Calculations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">Cup fill level</td>
+                                <td id="fillLevel" class="text-end"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Cup full</td>
+                                <td id="fullCup" style="font-weight: bold" class="text-end"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Coffee hot</td>
+                                <td id="hot" style="font-weight: bold" class="text-end"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>

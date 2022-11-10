@@ -8,6 +8,9 @@
     .coveringCanvas {
         left: 0px;
     }
+    .elements{
+        margin-left: 18%;
+    }
 }
 /* Small devices (landscape phones, 544px and up) */
 @media (min-width: 544px) {
@@ -41,6 +44,9 @@
     .coveringCanvas {
         left: 25%;
     }
+    .elements{
+        margin-left: 10%;
+    }
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
@@ -59,6 +65,9 @@
     }
     .coveringCanvas {
         left: 0px;
+    }
+    .elements{
+        margin-left: 0%;
     }
 }
 
@@ -141,10 +150,15 @@
     font-family: "Gill Sans", sans-serif;
 }
 
+/*button*/
 .myBtn{
     background-color:#aaaaaa;
     color:#000000;
     border-width: 1px;
     border-color: black;
+}
+
+.elements{
+
 }
 
