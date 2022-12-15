@@ -1,7 +1,6 @@
 /*media queries for different display resolutions*/
 @media (min-width: 0px) {
     h2 {font-size:2rem;} /*1rem = 16px*/
-    h4 {font-size:0.5rem;} /*1rem = 16px*/
     .coveredImage {
         left: 0px;
     }
@@ -15,7 +14,6 @@
 /* Small devices (landscape phones, 544px and up) */
 @media (min-width: 544px) {
     h2 {font-size:2.5rem;} /*1rem = 16px*/
-    h4 {font-size:0.5rem;} /*1rem = 16px*/
     .coveredImage {
         left: 0px;
     }
@@ -26,7 +24,6 @@
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {
     h2 {font-size:2.5rem;} /*1rem = 16px*/
-    h4  {font-size:1rem;} /*1rem = 16px*/
     .coveredImage {
         left: 10%;
     }
@@ -37,7 +34,6 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     h2 {font-size:3rem;} /*1rem = 16px*/
-    h4 {font-size:1.5rem;} /*1rem = 16px*/
     .coveredImage {
         left: 25%;
     }
@@ -51,7 +47,6 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     h2 {font-size:3.5rem;} /*1rem = 16px*/
-    h4 {font-size:1.5rem;} /*1rem = 16px*/
     .coveredImage {
         left: 38%;
     }
@@ -90,62 +85,12 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
-
-
-/*blinking sign*/
-.blink {
-    animation: blink-orange 1.5s linear infinite;
-}
-.blink-green{
-    animation: blink-green 0.5s linear infinite;
-}
-
-.blink-red{
-    animation: blink-red 0.5s linear infinite;
-}
-
-.blink-blue{
-    animation: blink-blue 0.5s linear infinite;
-}
-
-@keyframes blink-orange {
-    50% {
-        background-color: rgba(252, 164, 0,1);
-        box-shadow: 3px 3px 3px 0px rgba(252, 164, 0,0.5);
-    }
-}
-
-@keyframes blink-green {
-    50% {
-        background-color: rgba(2, 181, 41,1);
-        box-shadow: 3px 3px 3px 0px rgba(2, 181, 41,0.5);
-        transform: scale(1.1, 1.1);
-    }
-}
-
-@keyframes blink-red {
-    50% {
-        background-color: rgba(217, 2, 2,1);
-        box-shadow: 3px 3px 3px 0px rgba(217, 2, 2,0.5);
-        transform: scale(1.1, 1.1);
-    }
-}
-
-@keyframes blink-blue {
-    50% {
-        background-color: rgba(0, 159, 245,1);
-        box-shadow: 3px 3px 3px 0px rgba(0, 159, 245,0.5);
-        transform: scale(1.1, 1.1);
-    }
-}
-
 .sign{
     text-align: center;
     white-space: nowrap;
     font-weight: bold;
     border-width: 4px;
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
-    -webkit-text-fill-color: rgb(0,0,0);
     padding: 1em 1em;
     font-family: "Gill Sans", sans-serif;
     min-width: 130px;

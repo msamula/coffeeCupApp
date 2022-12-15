@@ -61,29 +61,29 @@ export async function getData(ip, threshold) {
             }
 
             if(level >= 98.8 && temperature >= maxTemp){
-                ready.className = 'alert sign blink-green';
-                coming.className = 'alert sign';
-                low.className = 'alert sign';
-                cold.className = 'alert sign';
+                ready.style.backgroundColor     = 'rgba(2, 181, 41,1)';
+                coming.style.backgroundColor    = 'rgba(255, 255, 255,1)';
+                low.style.backgroundColor       = 'rgba(255, 255, 255,1)';
+                cold.style.backgroundColor      = 'rgba(255, 255, 255,1)';
             }
 
             else if(level < 98.8 && temperature >= maxTemp){
-                ready.className = 'alert sign';
-                coming.className = 'alert sign';
-                low.className = 'alert sign blink-red';
-                cold.className = 'alert sign';
+                ready.style.backgroundColor     = 'rgba(255, 255, 255,1)';
+                coming.style.backgroundColor    = 'rgba(255, 255, 255,1)';
+                low.style.backgroundColor       = 'rgba(217,   2,   2,1)';
+                cold.style.backgroundColor      = 'rgba(255, 255, 255,1)';
             }
             else if(level < 75 && level >= 70 && temperature < 45){
-                ready.className = 'alert sign';
-                coming.className = 'alert sign';
-                low.className = 'alert sign';
-                cold.className = 'alert sign blink-blue';
+                ready.style.backgroundColor     = 'rgba(255, 255, 255,1)';
+                coming.style.backgroundColor    = 'rgba(255, 255, 255,1)';
+                low.style.backgroundColor       = 'rgba(255, 255, 255,1)';
+                cold.style.backgroundColor      = 'rgba(  0, 159, 245,1)';
             }
             else if(level < 98.8 && temperature < maxTemp){
-                ready.className = 'alert sign';
-                coming.className = 'alert sign blink';
-                low.className  = 'alert sign';
-                cold.className = 'alert sign';
+                ready.style.backgroundColor     = 'rgba(255, 255, 255,1)';
+                coming.style.backgroundColor    = 'rgba(252, 164,   0,1)';
+                low.style.backgroundColor       = 'rgba(255, 255, 255,1)';
+                cold.style.backgroundColor      = 'rgba(255, 255, 255,1)';
             }
 
             //start new request after the previous one is done
